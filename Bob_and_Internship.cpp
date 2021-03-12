@@ -1,40 +1,26 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-long int fact(int n){
+long long int fact(int n){
     int a=n;
     while(--n) a*=n; 
     return a;
 }
-/* TESTING
-int main(){
-    int a;cin>>a;
-    cout<<fact(a);
-}
-*/
- 
  int main()
  {  int t;
      cin>>t;
      while(t--){
          int m,n,k;
          cin>>n>>m>>k;
-        while(m>0){
-            n-=k;
-            if(n>0){
-                n--;m--;
-            }
-            else break;
-        }
-
-        if(m==0) cout<<1;
-        else if(m>0) cout<<0;
-        else if(n>0) {cout<<"in";
-            int a= (fact(n)/(fact(m)*fact(n-m)));
-            cout<<a+1;
-        }
-     cout<<"\n";   
+         long long int r=n-1-((m-1)*(k+1));int d=0;
+         if(r<0){cout<<0;return 0;}
+         while(r){
+            d+=fact(m-1+r)/fact(r);r--;
+            d=d%(1000000007);
+         }
+         d++;
+         d/=(fact(m-1));
+         d=d % (1000000007);cout<<d;
+         cout<<"\n";   
      }
  }
- 
