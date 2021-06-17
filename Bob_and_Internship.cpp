@@ -6,6 +6,7 @@ long long int fact(int n){
     while(--n) a*=n; 
     return a;
 }
+
  int main()
  {  int t;
      cin>>t;
@@ -14,12 +15,15 @@ long long int fact(int n){
          cin>>n>>m>>k;
          long long int r=n-1-((m-1)*(k+1));int d=0;
          if(r<0){cout<<0;return 0;}
+         /*
          while(r){
             d+=fact(m-1+r)/fact(r);r--;
             d=d%(1000000007);
          }
-         d++;
-         d/=(fact(m-1));
+         d++;*/
+         for(int i=0;)
+         d=fact(m+r)/(fact(m)*fact(r));
+         //d/=(fact(m-1));
          d=d % (1000000007);cout<<d;
          cout<<"\n";   
      }
